@@ -19,7 +19,6 @@ def shutudai(alphabet):
             print(i, end=" ")
 
     print()
-    print("デバッグ用欠損文字:", kesson)
 
 
 def kaito(seikai):
