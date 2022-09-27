@@ -1,10 +1,10 @@
 import random
 import datetime 
 
-all_moji = 26
+all_alphabet = 26
 kesson_num = 2
 moji_num = 10
-roop_num = 2
+loop_num = 2
 
 def shutudai(alphabet):
     mojisuu = random.sample(alphabet, moji_num)
@@ -41,10 +41,10 @@ def kaito(seikai):
     return False
 
 if __name__ == "__main__":
-    alphabet = [chr(i+65) for i in range(all_moji)]
+    alphabet = [chr(i+65) for i in range(all_alphabet)]
     shutudai(alphabet)
 
-    for sen in range(roop_num):
+    for sen in range(loop_num):
         kesson = shutudai(alphabet)
         ret = kaito(kesson)
         if ret:
