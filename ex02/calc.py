@@ -37,8 +37,7 @@ def OFF(event):
     root.destroy()
 
 
-takasa = 1
-yoko = 0
+takasa, yoko = 1, 0
 numbers = list(range(9, -1, -1))
 hugo = ["+", "-", "*", "/", "."]
 for i, num in enumerate(numbers+hugo, 1):
