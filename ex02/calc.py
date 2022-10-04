@@ -10,16 +10,16 @@ def button_crick(event):
     num = int(button["text"])
     tkm.showinfo(f"{num}", f"{num}のボタンが押されました")#練習3
 
-r = 0
-c = 0
+takasa = 0
+yoko = 0
 for i, num in enumerate(range(9, -1, -1), 1):
     button = tk.Button(root, text = f"{num}", font=("Times New Roman", 30), width=4, height=2)
     button.bind("<1>", button_crick)
-    button.grid(row = r, column = c)
-    c += 1
-    if i%3==0:
-        r += 1
-        c = 0 #練習2
+    button.grid(row = takasa, column = yoko)
+    yoko += 1
+    if i % 3 == 0:
+        takasa += 1
+        yoko = 0 #練習2
 
 
 
