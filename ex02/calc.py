@@ -45,7 +45,8 @@ for i, num in enumerate(numbers+hugo, 1):
     button = tk.Button(root, text = f"{num}", font=("Times New Roman", 20), width=8, height=2)
     button.bind("<1>", button_crick)
     button.grid(row = takasa, column = yoko)
-    button["activebackground"] = "#CCFFFF"
+    button["bg"] = "#ffffff"
+    button["activebackground"] = "#ff7f50"
     yoko += 1
     if i % 3 == 0:
         takasa += 1
@@ -54,7 +55,8 @@ for i, num in enumerate(numbers+hugo, 1):
 
 #イコールボタンの作成
 equal_button = tk.Button(root, text = f"=", font=("Times New Roman", 20), width=8, height=2)
-equal_button["activebackground"] = "#CCFFFF"
+equal_button["bg"] = "#00bfff"
+equal_button["activebackground"] = "#ff7f50"
 equal_button.grid(row = 6, column = 2)
 equal_button.bind("<1>", equal_click)
 
@@ -62,14 +64,14 @@ equal_button.bind("<1>", equal_click)
 
 #一文字だけ消すボタンの作成
 clear_button = tk.Button(root, text="C", font=("Times New Roman", 20), width=8, height=2)
-clear_button["activebackground"] = "#CCFFFF"
+clear_button["activebackground"] = "#ff7f50"
 clear_button.grid(row = 6, column = 0)
 clear_button.bind("<1>", clear_click)
 
 
 #全部消すボタンの作成
 ALLclear_button = tk.Button(root, text="AC", font=("Times New Roman", 20), width=8, height=2)
-ALLclear_button["activebackground"] = "#CCFFFF"
+ALLclear_button["activebackground"] = "#ff7f50"
 ALLclear_button.grid(row = 6, column = 1)
 ALLclear_button.bind("<1>", ALLclear_click)
 
