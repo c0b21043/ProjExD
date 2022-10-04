@@ -8,7 +8,8 @@ root.geometry("300x500")#練習1
 def button_crick(event):
     button = event.widget
     num = int(button["text"])
-    tkm.showinfo(f"{num}", f"{num}のボタンが押されました")#練習3
+    #tkm.showinfo(f"{num}", f"{num}のボタンが押されました")#練習3
+    entry.insert(tk.END, num)#練習5
 
 takasa = 1
 yoko = 0
