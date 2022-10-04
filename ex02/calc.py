@@ -3,13 +3,20 @@ import tkinter.messagebox as tkm
 
 root = tk.Tk()
 root.title("電卓")
-root.geometry("300x600")#練習1
+root.geometry("300x700")#練習1
 
 def button_crick(event):
     button = event.widget
     num = button["text"]
     #tkm.showinfo(f"{num}", f"{num}のボタンが押されました")#練習3
     entry.insert(tk.END, num)#練習5
+
+def equal_click(event):
+    shiki = entry.get()
+    kekka = eval(shiki)
+    entry.delete(0, tk.END)
+    entry.insert(tk.END, kekka)
+
 
 takasa = 1
 yoko = 0
@@ -24,10 +31,13 @@ for i, num in enumerate(numbers+hugo, 1):
         takasa += 1
         yoko = 0 #練習2
 
-#plus_button = tk.Button(root, text="+", font=("", 30), #width=4, height = 2)
-#plus_button.grid(row = 4, column = 1)
+equal_button = tk.Button(root, text = f"=", font=("Times New Roman", 30), width=4, height=2)
+equal_button.grid(row = 4, column = 2)
+equal_button.bind("<1>", equal_click)
+
 
 entry = tk.Entry(root, justify="right", width=10, font=("Times New Roman", 40))
 entry.grid(row = 0, column =0, columnspan = 3)#練習4
+
 
 root.mainloop()
