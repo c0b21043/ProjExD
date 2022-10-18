@@ -16,6 +16,7 @@ def key_up(event):
 
 
 #ボタンクリックによってindexを増やし、古い画像を消して新しい画像を作り直している
+index = 0 #画像のindexをグローバルで管理する
 def btn_click(event):
     global index
     index = (index+1) % len(photos)
@@ -50,8 +51,6 @@ def main_proc():
 
     canv.coords("tori", cx, cy)
     root.after(100, main_proc)
-
-index = 0 #画像のindexをグローバルで管理する
 
 
 if __name__ == "__main__":
