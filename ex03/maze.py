@@ -22,6 +22,7 @@ def btn_click(event):
     index = (index+1) % len(photos)
     canv.delete("tori")
     canv.create_image(cx, cy, image=photos[index], tag="tori")
+    canv.create_image(1000, 800, image=photos[index+1], tag="tori")
     tkm.showinfo("画像変更", "こうかとんの画像が変更されました！\nかわいいですね^^")
 
 
