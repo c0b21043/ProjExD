@@ -65,15 +65,7 @@ if __name__ == "__main__":
     mm.show_maze(canv, maze_lst)
 
     #こうかとんの写真のリスト
-    photos=[tk.PhotoImage(file='fig/1.png'),
-            tk.PhotoImage(file='fig/2.png'),
-            tk.PhotoImage(file='fig/3.png'),
-            tk.PhotoImage(file='fig/4.png'),
-            tk.PhotoImage(file='fig/5.png'),
-            tk.PhotoImage(file='fig/6.png'),
-            tk.PhotoImage(file='fig/7.png'),
-            tk.PhotoImage(file='fig/8.png'),
-            tk.PhotoImage(file='fig/9.png'),]
+    photos=[tk.PhotoImage(file=f'fig/{i}.png') for i in range(1, 10)]
 
     mx, my = 1, 1
     cx, cy = mx*100+50, my*100+50
