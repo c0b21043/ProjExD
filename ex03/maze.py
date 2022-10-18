@@ -21,8 +21,20 @@ def main_proc():
     if key == "Left":
         mx -= 1
     if key == "Right":
-        mx += 1
-    cx, cy = mx*100+50, my*100+50
+        mx += 1 
+
+    if maze_lst[my][mx] == 0:
+        cx, cy = mx*100+50, my*100+50
+    else: #もし壁なら動かないようにする
+        if key == "Up":
+            my += 1
+        if key == "Down":
+            my -= 1
+        if key == "Left":
+            mx += 1
+        if key == "Right":
+            mx -= 1 
+
     canv.coords("tori", cx, cy)
     root.after(100, main_proc)
 
@@ -34,8 +46,7 @@ if __name__ == "__main__":
     canv = tk.Canvas(root, width=1500, height=900, bg="black")
     canv.pack()
     
-    maze_lst = mm.make_maze(15, 9)
-    #1：壁、0：床
+    maze_lst = mm.make_maze(15, 9) #1：壁、0：床
     mm.show_maze(canv, maze_lst)
 
     tori = tk.PhotoImage(file="fig/1.png")
