@@ -25,6 +25,9 @@ def main():
     bomb_rct.centerx = randint(0, scrn_rct.width)
     bomb_rct.centery = randint(0, scrn_rct.height)
 
+    #練習6
+    vx, vy = +1, +1
+
     clock = pg.time.Clock()
     while True:
         scrn_sfc.blit(bg_sfc, bg_rct) #練習2
@@ -41,7 +44,8 @@ def main():
         if key_state[pg.K_RIGHT]: tori_rct.centerx += 1 #こうかとんの横座標を+1
         
         scrn_sfc.blit(tori_sfc, tori_rct) #練習3
-        scrn_sfc.blit(bomb_sfc, bomb_rct)
+        
+        bomb_rct.move_ip(vx, vy) #練習6
         scrn_sfc.blit(bomb_sfc, bomb_rct) #練習5
         pg.display.update() #練習2
         clock.tick(1000)
