@@ -34,16 +34,16 @@ def main():
     bomb_sfc.set_colorkey((0,0,0)) #四隅の黒の部分を透明にする
     pg.draw.circle(bomb_sfc, (255, 0, 0), (25, 25), 25) #円を描く
     bomb_rct = bomb_sfc.get_rect()
-    bomb_rct.centerx = randint(0, scrn_rct.width)
-    bomb_rct.centery = randint(0, scrn_rct.height)
+    bomb_rct.centerx = randint(0, scrn_rct.width/2)
+    bomb_rct.centery = randint(0, scrn_rct.height/2)
 
     #大きい爆弾の作成
     bigbomb_sfc = pg.Surface((150, 150)) #空のサーフェイス
     bigbomb_sfc.set_colorkey((0,0,0)) #四隅の黒の部分を透明にする
     pg.draw.circle(bigbomb_sfc, (255, 0, 0), (75, 75), 75) #円を描く
     bigbomb_rct = bigbomb_sfc.get_rect()
-    bigbomb_rct.centerx = randint(0, scrn_rct.width)
-    bigbomb_rct.centery = randint(0, scrn_rct.height)
+    bigbomb_rct.centerx = randint(0, scrn_rct.width/2)
+    bigbomb_rct.centery = randint(0, scrn_rct.height/2)
 
     #練習6
     vx, vy, big_vx, big_vy = +1, +1, +1, +1
