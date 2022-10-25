@@ -1,6 +1,7 @@
 import pygame as pg
 import sys
 from random import randint
+import random
 
 def check_bound(obj_rct, scr_rct): #はみ出さないように
     #obj_rct: こうかとんrct または 爆弾rct
@@ -98,7 +99,8 @@ def main():
             text = font.render("GAME OVER", False, (255, 0, 0))
             scrn_sfc.blit(text, (300, 450))
             #怒りのこうかとんに画像が変わる
-            tori_sfc = pg.image.load('fig/7.png')
+            koukaton = [f"fig/{i}.png" for i in range(10)]
+            tori_sfc = pg.image.load(random.choice(koukaton))
             tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
             #ぶつかると、画面全体が少し赤色に
             red_scr = pg.Surface((1600, 900), flags=pg.SRCALPHA)
