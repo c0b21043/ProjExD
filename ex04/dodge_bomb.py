@@ -48,7 +48,7 @@ def main():
     #練習6
     vx, vy, big_vx, big_vy = +1, +1, +1, +1
 
-    clock = pg.time.Clock()
+    clock = pg.time.Clock() #時間計測用のオフジェクト
     while True:
         scrn_sfc.blit(bg_sfc, bg_rct) #練習2
     
@@ -108,7 +108,7 @@ def main():
             scrn_sfc.blit(red_scr, (0, 0))
 
         pg.display.update() #練習2
-        clock.tick(1000)
+        clock.tick(1000) #1000fpsを刻む
 
 
 if __name__ == "__main__":
