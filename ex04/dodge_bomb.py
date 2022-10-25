@@ -1,5 +1,3 @@
-from inspect import FullArgSpec
-from msilib import gen_uuid
 import pygame as pg
 import sys
 from random import randint
@@ -31,15 +29,23 @@ def main():
     tori_rct.center = 900, 400
 
     #練習5
-    bomb_sfc = pg.Surface((20, 20)) #空のサーフェイス
+    bomb_sfc = pg.Surface((50, 50)) #空のサーフェイス
     bomb_sfc.set_colorkey((0,0,0)) #四隅の黒の部分を透明にする
-    pg.draw.circle(bomb_sfc, (255, 0, 0), (10, 10), 10) #円を描く
+    pg.draw.circle(bomb_sfc, (255, 0, 0), (25, 25), 25) #円を描く
     bomb_rct = bomb_sfc.get_rect()
     bomb_rct.centerx = randint(0, scrn_rct.width)
     bomb_rct.centery = randint(0, scrn_rct.height)
 
+    #大きい爆弾の作成
+    bigbomb_sfc = pg.Surface((150, 150)) #空のサーフェイス
+    bigbomb_sfc.set_colorkey((0,0,0)) #四隅の黒の部分を透明にする
+    pg.draw.circle(bigbomb_sfc, (255, 0, 0), (75, 75), 75) #円を描く
+    bigbomb_rct = bigbomb_sfc.get_rect()
+    bigbomb_rct.centerx = randint(0, scrn_rct.width)
+    bigbomb_rct.centery = randint(0, scrn_rct.height)
+
     #練習6
-    vx, vy = +1, +1
+    vx, vy, big_vx, big_vy = +1, +1, +1, +1
 
     clock = pg.time.Clock()
     while True:
@@ -70,15 +76,34 @@ def main():
 
         scrn_sfc.blit(tori_sfc, tori_rct) #練習3
         
+        #小さい爆弾の動き方
         yoko, tate = check_bound(bomb_rct, scrn_rct)
         vx *= yoko
         vy *= tate
         bomb_rct.move_ip(vx, vy) #練習6
         scrn_sfc.blit(bomb_sfc, bomb_rct) #練習5
 
+        #大きい爆弾の動き方
+        yoko, tate = check_bound(bigbomb_rct, scrn_rct)
+        big_vx *= yoko
+        big_vy *= tate
+        bigbomb_rct.move_ip(big_vx, big_vy) #練習6
+        scrn_sfc.blit(bigbomb_sfc, bigbomb_rct) #練習5
+
         #練習8
-        if tori_rct.colliderect(bomb_rct): #こうかとんrctが爆弾rctと重なったら
-            return
+        if tori_rct.colliderect(bomb_rct) or tori_rct.colliderect(bigbomb_rct): #こうかとんrctが爆弾rctと重なったら
+            #ゲームオーバーの文字を表示
+            bomb_rct.move_ip(0, 0)
+            font = pg.font.SysFont(None, 100)
+            text = font.render("GAME OVER", False, (255, 0, 0))
+            scrn_sfc.blit(text, (300, 450))
+            #怒りのこうかとんに画像が変わる
+            tori_sfc = pg.image.load('fig/7.png')
+            tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
+            #ぶつかると、画面全体が少し赤色に
+            red_scr = pg.Surface((1600, 900), flags=pg.SRCALPHA)
+            red_scr.fill((255, 0, 0, 128))
+            scrn_sfc.blit(red_scr, (0, 0))
 
         pg.display.update() #練習2
         clock.tick(1000)
