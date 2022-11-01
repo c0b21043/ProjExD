@@ -153,8 +153,8 @@ def main():
 
     kkt = Bird("fig/6.png", 2.0, (900, 400))
 
-    bkd = Bombsaikyou((255, 0, 0), 10, (+1, +1), scr)
-    bkd2 = Bombyowai((255, 0, 0), 50, (+1, +1), scr)
+    bkd = Bombsaikyou((255, 0, 0), 10, (+1, +1), scr) #最強な爆弾の表示
+    bkd2 = Bombyowai((255, 0, 0), 50, (+1, +1), scr) #倒せる爆弾の表示
 
     boom_sound = pg.mixer.Sound("fig/boom.wav")
 
@@ -172,16 +172,16 @@ def main():
         bkd2.update(scr)
 
         if kkt.rct.colliderect(bkd.rct): # こうかとんrctが爆弾rctと重なったら
-            Gameover("GameOver", (255, 0, 0), (300, 450), scr)
-            Change(2.0, kkt)
+            Gameover("GameOver", (255, 0, 0), (300, 450), scr) #ゲームオーバーと表示
+            Change(2.0, kkt) #画像チェンジ
             if pg.mixer:
-                boom_sound.play()
+                boom_sound.play() #爆発音がなる
             pg.display.update()
             clock.tick(1)
             return
             
         elif kkt.rct.colliderect(bkd2.rct):
-            Tackle((175, 228, 227), bkd2, scr)
+            Tackle((175, 228, 227), bkd2, scr) #触れることで色が変わる
             pg.display.update()
             
         pg.display.update() 
