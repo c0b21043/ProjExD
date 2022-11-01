@@ -13,6 +13,7 @@ key_delta = {
 
 main_dir = os.path.split(os.path.abspath(__file__))[0]
 
+
 class Screen:
     def __init__(self, title, wh, bgimg):
         pg.display.set_caption(title)#にげろこうかとん
