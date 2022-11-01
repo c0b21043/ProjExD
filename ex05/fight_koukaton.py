@@ -102,8 +102,8 @@ class Bombyowai:
 class Gameover:
     def __init__(self, text, color, basho,scr:Screen):
         font = pg.font.SysFont(None, 100)
-        text = font.render(text, False, color)# "GAME OVER", False, (255, 0, 0)
-        scr.sfc.blit(text, basho)# 300, 450
+        text = font.render(text, False, color) # "GAME OVER", False, (255, 0, 0)
+        scr.sfc.blit(text, basho) # 300, 450
 
 
 #画像チェンジのクラス
