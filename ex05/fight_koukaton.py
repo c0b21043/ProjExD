@@ -149,34 +149,28 @@ def check_bound(obj_rct, scr_rct):
 
 
 def main():
-    # 練習1
     scr = Screen("逃げろ！！こうかとん", (1600, 900), "fig/pg_bg.jpg")
 
-    # 練習3
     kkt = Bird("fig/6.png", 2.0, (900, 400))
 
-    # 練習5
     bkd = Bombsaikyou((255, 0, 0), 10, (+1, +1), scr)
     bkd2 = Bombyowai((255, 0, 0), 50, (+1, +1), scr)
 
     boom_sound = pg.mixer.Sound("fig/boom.wav")
 
-    clock = pg.time.Clock() # 練習1
+    clock = pg.time.Clock() 
     while True:
-        # scr.sfc.blit(bg_sfc, bg_rct) # 練習2
         scr.blit()
         
-        for event in pg.event.get(): # 練習2
+        for event in pg.event.get(): 
             if event.type == pg.QUIT:
                 return
 
         kkt.update(scr)
 
-        # 練習7 
         bkd.update(scr)
         bkd2.update(scr)
 
-        # 練習8
         if kkt.rct.colliderect(bkd.rct): # こうかとんrctが爆弾rctと重なったら
             Gameover("GameOver", (255, 0, 0), (300, 450), scr)
             Change(2.0, kkt)
@@ -190,7 +184,7 @@ def main():
             Tackle((175, 228, 227), bkd2, scr)
             pg.display.update()
             
-        pg.display.update() #練習2
+        pg.display.update() 
         clock.tick(1000)
 
 
