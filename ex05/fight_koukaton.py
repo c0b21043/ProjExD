@@ -118,6 +118,13 @@ class Change:
 class Tackle:
     def __init__(self, color, bkd2:Bombyowai, scr:Screen):
         pg.draw.circle(bkd2.sfc, color, (50, 50), 50)
+        """ 
+        これはこうかとんが倒せる爆弾に触れた時に関数を発動するように
+        しているので、触れた瞬間に爆弾の色を空と同じ水色に変えて(colorで設定)、
+        こうかとんが倒したようにしています。
+        また、193行目でreturnしないことによって
+        ぶつかってもそのままゲームが続行するようにしています。
+        """
 
 
 #爆弾の効果音のクラス
