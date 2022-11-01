@@ -149,7 +149,7 @@ def check_bound(obj_rct, scr_rct):
 
 def main():
     # 練習1
-    scr = Screen("逃げろ！こうかとん", (1600, 900), "fig/pg_bg.jpg")
+    scr = Screen("逃げろ！！こうかとん", (1600, 900), "fig/pg_bg.jpg")
 
     # 練習3
     kkt = Bird("fig/6.png", 2.0, (900, 400))
@@ -171,7 +171,7 @@ def main():
 
         kkt.update(scr)
 
-        # 練習7
+        # 練習7 
         bkd.update(scr)
         bkd2.update(scr)
 
