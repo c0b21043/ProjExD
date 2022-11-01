@@ -83,8 +83,8 @@ class Bombyowai:
         self.sfc.set_colorkey((0, 0, 0)) # 四隅の黒い部分を透過させる
         pg.draw.circle(self.sfc, color, (radius, radius), radius) # 爆弾用の円を描く
         self.rct = self.sfc.get_rect()
-        self.rct.centerx = randint(0, scr.rct.width)
-        self.rct.centery = randint(0, scr.rct.height)
+        self.rct.centerx = randint(0, scr.rct.width/2)
+        self.rct.centery = randint(0, scr.rct.height/2)
         self.vx, self.vy = vxy # 練習6
 
     def blit(self, scr:Screen):
