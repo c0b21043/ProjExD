@@ -3,14 +3,6 @@ import sys
 from random import randint
 
 
-key_delta = {
-    pg.K_UP:    [0, -1],
-    pg.K_DOWN:  [0, +1],
-    pg.K_LEFT:  [-1, 0],
-    pg.K_RIGHT: [+1, 0],
-}
-
-
 #　スクリーン全体の作成クラス
 class Screen:
     def __init__(self, title, wh, bgimg):
