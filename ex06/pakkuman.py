@@ -3,7 +3,7 @@ import sys
 from random import randint
 
 
-#　スクリーン全体の作成クラス
+# スクリーン全体の作成クラス
 class Screen:
     def __init__(self, title, wh, bgimg):
         pg.display.set_caption(title) # 食え！パックとん
@@ -16,7 +16,7 @@ class Screen:
         self.sfc.blit(self.bgi_sfc, self.bgi_rct)
 
 
-#　こうかとん作成クラス
+# こうかとん作成クラス
 class Bird:
     key_delta = {
         pg.K_UP:    [0, -1],
@@ -46,7 +46,7 @@ class Bird:
         self.blit(scr)
 
 
-#　こうかとんをやっつけにくる爆弾クラス
+# こうかとんをやっつけにくる爆弾クラス
 class Bakudan:
     def __init__(self, color, radius, vxy, scr:Screen):
         self.sfc = pg.Surface((radius*2, radius*2))
@@ -68,7 +68,7 @@ class Bakudan:
         self.blit(scr)
 
 
-#　ドットを作成するクラス
+# ドットを作成するクラス
 class Dotto:
     def __init__(self, color, radius, scr:Screen):
         self.sfc = pg.Surface((radius*2, radius*2))
@@ -107,7 +107,7 @@ class Score:
         self.score += x
 
 
-#　ゲームオーバーと表示するクラス
+# ゲームオーバーと表示するクラス
 class Gameover:
     def __init__(self, text, color, basho, scr:Screen):
         font = pg.font.SysFont(None, 100)
@@ -182,7 +182,7 @@ def main():
         # こうかとんがドットと重なったら
         if kkt.rct.colliderect(dot1.rct):
             Eat((0, 0, 0), dot1, scr)
-            #スコアを1足す
+            # スコアを1足す
             score.score += 1
             pg.display.update()
         
